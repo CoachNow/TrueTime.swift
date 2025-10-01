@@ -78,7 +78,7 @@ final class NTPClient {
 #endif
     }
 
-    var logger: LogCallback? = defaultLogger
+    var logger: LogCallback? = nil
     private let queue = DispatchQueue(label: "com.instacart.ntp.client")
     private let reachability = Reachability()
     private var completionCallbacks: [(DispatchQueue, ReferenceTimeCallback)] = []
