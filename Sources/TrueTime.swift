@@ -48,7 +48,7 @@ public typealias ReferenceTimeCallback = (ReferenceTimeResult) -> Void
 public typealias LogCallback = (String) -> Void
 
 @objc public final class TrueTimeClient: NSObject {
-    @objc public static let sharedInstance = TrueTimeClient()
+    @MainActor @objc public static let sharedInstance = TrueTimeClient()
     @objc required public init(timeout: TimeInterval = 8,
                                maxRetries: Int = 3,
                                maxConnections: Int = 5,
