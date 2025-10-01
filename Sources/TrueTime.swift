@@ -78,14 +78,6 @@ public typealias LogCallback = (String) -> Void
         ntp.fetchIfNeeded(queue: callbackQueue, first: first, completion: completion)
     }
 
-#if DEBUG_LOGGING
-    @objc public var logCallback: LogCallback? = defaultLogger {
-        didSet {
-            ntp.logger = logCallback
-        }
-    }
-#endif
-
     @objc public var referenceTime: ReferenceTime? { return ntp.referenceTime }
     @objc public var timeout: TimeInterval { return config.timeout }
     @objc public var maxRetries: Int { return config.maxRetries }
@@ -133,5 +125,3 @@ extension TrueTimeClient {
         }
     }
 }
-
-let defaultLogger: LogCallback = { print($0) }
